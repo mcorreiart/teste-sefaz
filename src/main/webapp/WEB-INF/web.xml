@@ -4,7 +4,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>UsuarioSefaz</display-name>
-
+	<welcome-file-list>
+		<welcome-file>home.jsp</welcome-file>
+	</welcome-file-list>
 	<servlet>
 		<servlet-name>addUser</servlet-name>
 		<servlet-class>controller.addUserController</servlet-class>
@@ -17,7 +19,7 @@
 		<servlet-name>removeUser</servlet-name>
 		<servlet-class>controller.removeUserController</servlet-class>
 	</servlet>
-		<servlet>
+	<servlet>
 		<servlet-name>updateUser</servlet-name>
 		<servlet-class>controller.updateUserController</servlet-class>
 	</servlet>
@@ -34,17 +36,17 @@
 		<servlet-name>getUser</servlet-name>
 		<url-pattern>/getUser</url-pattern>
 	</servlet-mapping>
-		<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>removeUser</servlet-name>
 		<url-pattern>/removeUser</url-pattern>
 	</servlet-mapping>
-			<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>updateUser</servlet-name>
 		<url-pattern>/updateUser</url-pattern>
 	</servlet-mapping>
-		<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>loginUser</servlet-name>
 		<url-pattern>/loginUser</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>
