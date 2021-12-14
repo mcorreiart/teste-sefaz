@@ -6,9 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import model.User;
 
 public class UserJpaDAO {
@@ -82,13 +79,29 @@ public class UserJpaDAO {
 
 	// Utiliza o LIKE para buscar os usuários pelo termo informado
 	public List<User> getByName(final String name) {
+		Query query = this.entityManager
+				.createQuery("SELECT u FROM User u WHERE u.name LIKE '%" + name + "%'");
+
+		List<User> user;
+
+		try {
+			user = query.getResultList();
+			
+		} catch (NoResultException e) {
+			user = null;
+		}
+		
+		return user;
+		
+	/*	
+		
 		CriteriaBuilder qb = entityManager.getCriteriaBuilder();
 		CriteriaQuery<User> cq = qb.createQuery(User.class);
 		Root<User> user = cq.from(User.class);
 
 		cq.where(qb.like(user.get("name"), "%" + name + "%"));
 
-		return entityManager.createQuery(cq).getResultList();
+		return entityManager.createQuery(cq).getResultList();*/
 	}
 
 	// Busca todos os usuários
