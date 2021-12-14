@@ -53,17 +53,17 @@ public class updateUserController extends HttpServlet {
 		User user = new User();
 		String id = request.getParameter("id").trim();
 
-		// action = "search", busca primeiro o usu·rio para saber se ele existe antes de
+		// action = "search", busca primeiro o usu√°rio para saber se ele existe antes de
 		// editar
 		String action = request.getParameter("action").trim();
 
 		if (id == null || id.isEmpty()) {
-			message = "Por favor, informar o Id do Usu·rio.";
+			message = "Por favor, informar o Id do Usu√°rio.";
 		} else {
 			if (action.equals("search")) {
 				user = UserJpaDAO.getInstance().getById(Integer.parseInt(id));
 				if (user != null) {
-					// Envia os dados do usu·rio encontrado
+					// Envia os dados do usu√°rio encontrado
 					message = message + user.getId() + "--" + user.getName() + "--" + user.getEmail() + "--"
 							+ user.getPassword() + "--";
 					for (int j = 0; j < user.getTel().size(); j++) {
@@ -71,7 +71,7 @@ public class updateUserController extends HttpServlet {
 								+ user.getTel().get(j).getNumber() + "--";
 					}
 				} else {
-					message = "Usu·rio n„o encontrado.";
+					message = "Usu√°rio n√£o encontrado.";
 				}
 			} else {
 				Telephone telephone = new Telephone();
@@ -88,8 +88,8 @@ public class updateUserController extends HttpServlet {
 				if (!User.validateEmail(email)) {
 					message = message + " E-mail\n";
 				} else {
-					// Pega email do usuario para verificar se È igual ao editado, caso n„o seja,
-					// verifica se j· existe esse email cadastrado
+					// Pega email do usuario para verificar se √© igual ao editado, caso n√£o seja,
+					// verifica se j√° existe esse email cadastrado
 					String emailAux = UserJpaDAO.getInstance().getById(Integer.parseInt(id)).getEmail();
 					if (emailAux.equals(email) || UserJpaDAO.getInstance().getByEmail(email) == null) {
 						// Valida o nome
@@ -132,7 +132,7 @@ public class updateUserController extends HttpServlet {
 										}
 									}
 
-									// Se tiver tudo ok, adiciona os telefones na lista do usu·rio
+									// Se tiver tudo ok, adiciona os telefones na lista do usu√°rio
 									if (message.equals("")) {
 										user.getTel()
 												.add(new Telephone(Integer.parseInt(ddds[i]), numbers[i], types[i]));
@@ -145,17 +145,17 @@ public class updateUserController extends HttpServlet {
 							// Retorna o erro
 							if (!message.equals("")) {
 								response.getWriter().write(message);
-							} else {// Edita o usu·rio
+							} else {// Edita o usu√°rio
 								user.setName(name);
 								user.setEmail(email);
 								user.setPassword(password);
 
 								UserJpaDAO.getInstance().updateById(Integer.parseInt(id), user);
-								message = "Usu·rio Alterado.";
+								message = "Usu√°rio Alterado.";
 							}
 						}
 					} else {
-						message = "E-mail j· cadastrado.";
+						message = "E-mail j√° cadastrado.";
 					}
 				}
 

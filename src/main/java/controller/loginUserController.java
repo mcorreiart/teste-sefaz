@@ -58,12 +58,12 @@ public class loginUserController extends HttpServlet {
 		if (email != null && password != null) {
 			// Verifica email e senha no banco
 			user = UserJpaDAO.getInstance().getLogin(email, password);
-			if (user == null) { // N„o cadastrado
-				message = "Usu·rio n„o cadastrado!";
+			if (user == null) { // N√£o cadastrado
+				message = "Usu√°rio n√£o cadastrado!";
 				request.setAttribute("message", message);
 				dispatcher.forward(request, response);
-			} else { // Usu·rio encontrado
-				message = "Usu·rio logado com sucesso!";
+			} else { // Usu√°rio encontrado
+				message = "Usu√°rio logado com sucesso!";
 				request.setAttribute("message", message);
 				dispatcher = request.getRequestDispatcher("home.jsp");
 				dispatcher.forward(request, response);

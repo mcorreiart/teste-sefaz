@@ -58,17 +58,17 @@ public class getUserController extends HttpServlet {
 		} else {
 			List<User> user = new ArrayList<User>();
 
-			// Caso o nome seja "(listAllUsers)", busca todos os usu·rios no banco
+			// Caso o nome seja "(listAllUsers)", busca todos os usu√°rios no banco
 			if (name.equals("(listAllUsers)")) {
 
 				user = UserJpaDAO.getInstance().findAll();
 
-			} else { // Caso contr·rio, busca todas as ocorrÍncias no banco atravÈs de like
+			} else { // Caso contr√°rio, busca todas as ocorr√™ncias no banco atrav√©s de like
 				user = UserJpaDAO.getInstance().getByName(name);
 			}
 
 			if (!(user == null || user.isEmpty())) {
-				// Pega os dados do usu·rio para enviar
+				// Pega os dados do usu√°rio para enviar
 				for (int i = 0; i < user.size(); i++) {
 					message = message + user.get(i).getId() + "--" + user.get(i).getName() + "--"
 							+ user.get(i).getEmail() + "--";
@@ -83,7 +83,7 @@ public class getUserController extends HttpServlet {
 					}
 				}
 			} else {
-				message = "Usu·rio n„o encontrado.";
+				message = "Usu√°rio n√£o encontrado.";
 			}
 		}
 		response.getWriter().write(message);

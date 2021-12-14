@@ -41,7 +41,7 @@ public class UserJpaDAO {
 
 	}
 
-	// Retorna o usuário pelo Email
+	// Retorna o usuÃ¡rio pelo Email
 	public User getByEmail(final String email) {
 		Query query = this.entityManager
 				.createQuery("SELECT u FROM User u WHERE u.email = :email");
@@ -80,7 +80,7 @@ public class UserJpaDAO {
 		return user;
 	}
 
-	// Utiliza o LIKE para buscar os usuários pelo termo informado
+	// Utiliza o LIKE para buscar os usuÃ¡rios pelo termo informado
 	public List<User> getByName(final String name) {
 		CriteriaBuilder qb = entityManager.getCriteriaBuilder();
 		CriteriaQuery<User> cq = qb.createQuery(User.class);
@@ -91,7 +91,7 @@ public class UserJpaDAO {
 		return entityManager.createQuery(cq).getResultList();
 	}
 
-	// Busca todos os usuários
+	// Busca todos os usuÃ¡rios
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
 		return entityManager.createQuery("FROM " + User.class.getName()).getResultList();
@@ -108,7 +108,7 @@ public class UserJpaDAO {
 		}
 	}
 
-	// Recebe o id do usuário e atualiza com os novos dados
+	// Recebe o id do usuÃ¡rio e atualiza com os novos dados
 	public void updateById(final int id, User newUser) {
 		User user = entityManager.find(User.class, id);
 		user.setName(newUser.getName());

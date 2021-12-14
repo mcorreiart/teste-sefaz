@@ -104,7 +104,7 @@ public class addUserController extends HttpServlet {
 								}
 							}
 
-							// Se tiver tudo ok, adiciona os telefones na lista do usu·rio
+							// Se tiver tudo ok, adiciona os telefones na lista do usu√°rio
 							if (message.equals("")) {
 								user.getTel().add(new Telephone(Integer.parseInt(ddds[i]), numbers[i], types[i]));
 							}
@@ -114,17 +114,17 @@ public class addUserController extends HttpServlet {
 					}
 				}
 
-				// Cadastra o usu·rio
+				// Cadastra o usu√°rio
 				if (message.equals("")) {
 					user.setName(name);
 					user.setEmail(email);
 					user.setPassword(password);
 
 					UserJpaDAO.getInstance().merge(user);
-					message = "Usu·rio Cadastrado.";
+					message = "Usu√°rio Cadastrado.";
 				}
 			} else {
-				message = "E-mail j· cadastrado.";
+				message = "E-mail j√° cadastrado.";
 			}
 		}
 

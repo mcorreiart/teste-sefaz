@@ -49,15 +49,15 @@ public class removeUserController extends HttpServlet {
 		String idToRemove = request.getParameter("id").trim();
 
 		if (idToRemove == null || idToRemove.isEmpty()) {
-			message = "Informe o usu·rio.";
+			message = "Informe o usu√°rio.";
 		} else {
-			// Busca o usu·rio pelo ID
+			// Busca o usu√°rio pelo ID
 			User user = UserJpaDAO.getInstance().getById(Integer.parseInt(idToRemove));
 			if (user != null) {
 				// Caso encontre, apaga do banco
 				UserJpaDAO.getInstance().removeById(Integer.parseInt(idToRemove));
 			} else {
-				message = "Usu·rio n„o encontrado.";
+				message = "Usu√°rio n√£o encontrado.";
 			}
 		}
 		

@@ -65,7 +65,7 @@ public class Telephone implements Serializable {
 		return ddd.matches("([0-9]{2})");
 	}
 
-	// Valida o número de telefone com regex
+	// Valida o nÃºmero de telefone com regex
 	public boolean validateNumber(String number, boolean type) {
 		if (type)
 			return number.matches("([0-9]{9})");
